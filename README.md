@@ -9,6 +9,7 @@ La configuración de Terraform ejecuta la aplicación de un parche al servicio i
 - [Recursos Creados](#recursos-creados)
 - [Dependencias](#dependencias)
 
+
 ## Características
 
 - Automatiza la actualización del kubeconfig para el clúster de EKS.
@@ -28,7 +29,7 @@ Para la ejecución de la configuración se deben considerar los siguientes punto
 
 - Definir los puertos SSL que utilizará el Load Balancer en la variable 'lb_ssl_ports'.
 
-Una vez se completa con lo anterior, se debe desplegar este módulo a través del módulo de despliegue de Istio ubicado en el repositorio 'istio-eks-<perfil>-nlb-patch' y seguir los pasos indicados en ese módulo.
+Una vez se completa con lo anterior, se debe desplegar este módulo a través del módulo de despliegue de Istio ubicado en el repositorio 'istio-eks-nlb-patch' y seguir los pasos indicados en ese módulo.
 
 
 ## Variables de entrada
@@ -66,8 +67,8 @@ El despliegue de Terraform crea los siguientes recursos en la cuenta de AWS:
 
 Este módulo depende de los siguientes recursos:
 
-- Recursos de red desplegados en la cuenta de AWS obtenidos del módulo Unity-Networking-deploy y un bucket S3 donde se almacena el estado de Terraform de este módulo.
+- Recursos de red desplegados en la cuenta de AWS obtenidos del módulo Unity-Networking-deploy.
 
-- Un clúster de EKS desplegado en la cuenta de AWS obtenido del módulo Unity-EKS-deploy y un bucket S3 donde se almacena el estado de Terraform de este módulo.
+- Un clúster de EKS desplegado en la cuenta de AWS obtenido del módulo Unity-EKS-deploy.
 
-- Tener configurados los recursos de Istio ('istio_base', 'istio_d' e 'istio_ingress') en el clúster de EKS obtenidos del módulo 'istio-eks-<perfil>-deploy'.
+- Tener configurados los recursos de Istio ('istio_base', 'istio_d' e 'istio_ingress') en el clúster de EKS obtenidos del módulo 'istio-eks-deploy'.
