@@ -26,5 +26,17 @@ resource "null_resource" "patch_deployment" {
     EOT
   }
 
+  # Ejecuta un comando para revertir los cambios cuando se destruya la infraestructura
+  provisioner "local-exec" {
+    when    = destroy
+    command = <<-EOT
+      kubectl -n ${var.istio_namespace_gateway} patch service ${var.istio_service_gateway} --patch '{
+        "metadata": {
+          "annotations": null
+        }
+      }'
+    EOT
+  }
+
   depends_on = [null_resource.configure_kubectl]
 }
