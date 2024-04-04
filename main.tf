@@ -1,8 +1,8 @@
-# Recupera la información de las subnets privadas existentes a partir de los IDs generados en 'var.subnets_id'
-data "aws_subnet" "module_subnet" {
-  for_each = var.subnets_id
-  id       = each.value
-}
+# # Recupera la información de las subnets privadas existentes a partir de los IDs generados en 'var.subnets_id'
+# data "aws_subnet" "module_subnet" {
+#   for_each = var.subnets_id
+#   id       = each.value
+# }
 
 # Ejecuta los comandos de Kubernetes para actualizar el kubeconfig del clúster de EKS
 resource "null_resource" "configure_kubectl" {
