@@ -26,11 +26,15 @@ resource "null_resource" "patch_deployment" {
     EOT
   }
 
+  triggers = {
+    namespace = var.istio_namespace_gateway
+    gateway   = var.istio_service_gateway
+  }
   # Ejecuta un comando para revertir los cambios cuando se destruya la infraestructura
   provisioner "local-exec" {
     when    = destroy
     command = <<-EOT
-      kubectl -n ${var.istio_namespace_gateway} patch service ${var.istio_service_gateway} --patch '{
+      kubectl -n ${self.triggers.namespace} patch service ${self.triggers.gateway} --patch '{
         "metadata": {
           "annotations": null
         }
