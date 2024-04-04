@@ -51,7 +51,7 @@ Una vez se completa con lo anterior, se debe desplegar este módulo a través de
 
 ## Variables de salida
 
-El código actualmente no produce variables de salida.
+- `subnets_id` - IDs de las subnets donde está hospedado el clúster de EKS con Istio separados por una coma.
 
 
 ## Recursos creados
@@ -61,6 +61,8 @@ El despliegue de Terraform crea los siguientes recursos en la cuenta de AWS:
 - Crea un recurso nulo para ejecutar la actualización de la configuración y el contexto del Kubeconfig del clúster de EKS.
 
 - Crea un recurso nulo para ejecutar un parche en el servicio istio-ingressgateway para que el Load Balancer esté configurado como un NLB con HTTPS en el puerto 443 y asociado a las subredes del clúster de EKS.
+
+- Revierte los cambios si se destruye la infraestructura.
 
 
 ## Dependencias
