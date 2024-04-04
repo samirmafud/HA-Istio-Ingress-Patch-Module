@@ -1,6 +1,6 @@
-# Módulo para configurar el Load Balancer desplegado por ISTIO en AWS hacia un Network Load Balancer con HTTPS
+# Módulo de Terraform para configurar la actualización del Load Balancer desplegado por ISTIO
 
-La configuración de Terraform ejecuta la aplicación de un parche al servicio istio-ingressgateway en un clúster de EKS para configurar los parámetros necesarios en el Load Balancer de Istio.
+La configuración de Terraform ejecuta la aplicación de un parche al servicio istio-ingressgateway en un clúster de EKS para actualizar el Load Balancer desplegado por ISTIO hacia un Network Load Balancer con HTTPS.
 
 - [Características](#características)
 - [Uso](#uso)
@@ -14,7 +14,7 @@ La configuración de Terraform ejecuta la aplicación de un parche al servicio i
 
 - Automatiza la actualización del kubeconfig para el clúster de EKS.
 
-- Aplica un parche al servicio 'istio-ingressgateway' para configurar el Network Load Balancer con HTTPS en el clúster de EKS.
+- Aplica un parche al servicio 'istio-ingressgateway' para configurar el Network Load Balancer de Istio con HTTPS en el clúster de EKS.
 
 
 ## Uso
@@ -56,7 +56,7 @@ Una vez se completa con lo anterior, se debe desplegar este módulo a través de
 
 ## Recursos creados
 
-El despliegue de Terraform crea los siguientes recursos en la cuenta de AWS:
+El despliegue de Terraform configura los siguientes recursos:
 
 - Crea un recurso nulo para ejecutar la actualización de la configuración y el contexto del Kubeconfig del clúster de EKS.
 
@@ -73,4 +73,4 @@ Este módulo depende de los siguientes recursos:
 
 - Un clúster de EKS desplegado en la cuenta de AWS obtenido del módulo Unity-EKS-deploy.
 
-- Tener configurados los recursos de Istio ('istio_base', 'istio_d' e 'istio_ingress') en el clúster de EKS obtenidos del módulo 'istio-eks-deploy'.
+- Tener configurados los recursos de Istio ('istio_base', 'istio_d' e 'istio_ingress') en el clúster de EKS obtenidos del módulo istio-eks-apolo-deploy.
