@@ -73,4 +73,4 @@ Este módulo depende de los siguientes recursos:
 
 - Un clúster de EKS desplegado en la cuenta de AWS obtenido del módulo Unity-EKS-deploy.
 
-- Tener configurados los recursos de Istio ('istio_base', 'istio_d' e 'istio_ingress') en el clúster de EKS obtenidos del módulo istio-eks-apolo-deploy.
+- Tener configurados los recursos de Istio ('istio_base', 'istio_d' e 'istio_ingress') en el clúster de EKS obtenidos del módulo istio-eks-deploy.
